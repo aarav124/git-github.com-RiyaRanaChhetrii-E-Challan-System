@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <title>Sign up</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><img src="{% static 'logo.png' %}" alt="logo" height="90px" width="100px" align="left"></div>
+            <div class="nepalflag"><img src="{% static 'nepal.gif' %}"" alt="" srcset="" height="80px" width="100px" align="right"></div>
+            <div class="headerContent">
+                Government of Nepal <br> Ministry of Infrastructure and Transport <br>
+                <b style="color: #3a0914;">Department of Transport Management</b><br> Minbhawan, Kathmandu
+                <h1>E-CHALLAN</h1>
+            </div>
+
+
+        </header>
+        <br>
+        <br>
+        <div class="overlay-container">
+            <form action="#">
+                {% csrf_token %}
+                <h1>Sign Up</h1>
+                <span></span>
+                <input type="text" placeholder="Name " name="name " required="" />
+                <br>
+                <input type="email" placeholder="Email" required />
+                <br>
+                <input type="password" placeholder="Password " id="password1" required="" />
+                <i class="bi bi-eye-slash" id="togglePassword1"></i>
+                <br>
+                <input type="password" placeholder="Confirm Password " id="password2" required="" />
+                <br>
+                <i class="bi bi-eye-slash" id="togglePasswordc"></i>
+                <button>Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const togglePassword1 = document.querySelector("#togglePassword1");
+        const password1 = document.querySelector("#password1");
+
+        togglePassword1.addEventListener("click", function() {
+            // toggle the type attribute
+            const type = password1.getAttribute("type") === "password" ? "text" : "password";
+            password1.setAttribute("type", type);
+
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+        // prevent form submit
+        const form1 = document.querySelector("form");
+        form1.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+    </script>
+    <script>
+        const togglePasswordc = document.querySelector("#togglePasswordc");
+        const password2 = document.querySelector("#password2");
+
+        togglePasswordc.addEventListener("click", function() {
+            // toggle the type attribute
+            const type = password2.getAttribute("type") === "password" ? "text" : "password";
+            password2.setAttribute("type", type);
+
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+        // prevent form submit
+        const form2 = document.querySelector("form");
+        form2.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+* {
+    box-sizing: border-box;
+    color: #fff
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgb(84, 74, 231);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.container {
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        top: 22%;
+        width: 85%;
+        max-width: 100%;
+        min-height: 480px;
+    }
+}
+
+body {
+    background: rgb(84, 74, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    height: 90vh;
+    font-family: 'Montserrat', sans-serif;
+    margin: -20px 0 50px;
+}
+
+.container {
+    background-color: #F9FBFF;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    top: 115px;
+    width: 800px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+header {
+    background-color: rgb(84, 74, 231);
+    color: #fff;
+    font-size: 12px;
+    top: 0px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    z-index: 999;
+}
+
+.logo {
+    top: 10px;
+    padding: 4px 20px;
+}
+
+.nepallogo {
+    right: 0px;
+}
+
+.headerContent {
+    align-content: flex-start;
+    padding: 1px;
+    right: 25px;
+    position: static;
+}
+
+form h1 {
+    color: #000000;
+}
+
+span {
+    font-size: 12px;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #110755;
+    background-color: #110755;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:hover {
+    color: #470817;
+    background-color: #ddd7e4;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    background-color: #eee;
+    color: rgb(15, 15, 15);
+    border: none;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 15px 15px 10px;
+    margin: 10px 0px 0px;
+    width: 100%;
+}
+
+form i {
+    cursor: pointer;
+    margin: -45px 25px 25px;
+    color: #110755;
+}
+
+i {
+    position: right;
+    align-self: flex-end;
+}
+
+@keyframes show {
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
