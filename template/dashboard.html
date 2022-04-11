@@ -231,7 +231,7 @@
         <div id="editEmployeeModal-{{forloop.counter}}" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="/update/{{i.id}}" method="POST" >
+                    <form action="/update/{{i.id}}" method="POST">
                         {% csrf_token %}
                         <div class="modal-header">
                             <h4 class="modal-title">Add Challan_reciever</h4>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <a href="/delete/{{i.id}}" type="submit" class="btn btn-danger" >Delete</a>
+                            <a href="/delete/{{i.id}}" type="submit" class="btn btn-danger">Delete</a>
                         </div>
                     </form>
                 </div>
