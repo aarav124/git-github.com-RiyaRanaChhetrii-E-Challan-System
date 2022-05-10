@@ -120,7 +120,7 @@ a:hover {
     color: #c3bae9;
 }
 
-button {
+#but {
     border-radius: 20px;
     margin-top: 1rem;
     border: 1px solid #d6baba;
@@ -134,20 +134,20 @@ button {
     transition: transform 80ms ease-in;
 }
 
-button:active {
+#but:active {
     transform: scale(0.95);
 }
 
-button:focus {
+#but:focus {
     outline: none;
 }
 
-button:hover {
+#but:hover {
     color: #470817;
     background-color: #c3bae9;
 }
 
-button.ghost {
+#but.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
 }

@@ -112,7 +112,7 @@ body {
 
 .toggle::before {
     content: '\f0c9';
-    font-family: fontAwesome;
+    font-family: sans-serif;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -207,4 +207,8 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
+}
+
+.table-responsive {
+    font-weight: 300;
 }

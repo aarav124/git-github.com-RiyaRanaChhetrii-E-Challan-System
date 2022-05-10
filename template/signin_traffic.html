@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
     <link rel="stylesheet" href="{% static 'signin.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <title>login Page</title>
@@ -30,7 +29,7 @@
             <img class="slideImages" src="{% static '3.jpg' %}" alt="">
         </div>
         <div class="overlay-container">
-            <form method="POST" action="{% url 'home'%}">
+            <form method="POST" action="{% url 'signin_traffic'%}">
                 {% csrf_token %}
                 <h1>Log in</h1>
                 <span></span>
@@ -41,7 +40,7 @@
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                 <br>
                 <input type="submit" value="Submit" id="but">
-                <p><a href="/signin_traffic">Traffic login</a></p>
+                <p><a href="#">Admin login</a></p>
                 <p>Create an account?
                     <a href="/signup">Sign Up</a>
                 </p>
@@ -60,7 +59,6 @@
             // toggle the icon
             this.classList.toggle("bi-eye");
         });
-        
     </script>
 
     <script src="{% static 'index.js' %}"></script>

@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Traffic Dashboard</title>
     {% load static %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'st.css' %}">
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/traffic_rule">
+                    <a href="#">
                         <span class="icon"><i class="fa fa-file-text" aria-hidden="true"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></i></span>
                         <span class="title">Traffic Rules</span>
                     </a>
@@ -91,25 +91,7 @@
                     <img alt="Nepal" src="{% static 'logo.svg' %}">
                 </div>
             </div>
-            <div class="cardBox">
-                <div class="card">
-                    <div class="iconBox">
-                        <a href="#" class="btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Updated Data</a>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="iconBox">
-                        <a href="#" class="btn"><i class="fa fa-trash" aria-hidden="true"></i>Deleted Data</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="iconBox">
-                        <a href="#" class="btn"><i class="fa fa-users" aria-hidden="true"></i>No. of Users</a>
-                    </div>
-                </div>
-
-            </div>
 
             <div class="table-responsive">
                 <div class="table-wrapper">
@@ -119,8 +101,8 @@
                                 <h2>Add <b>Challan</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add Challan</span></a>
+                                <a href="{% url 'pdf'%}" class="btn btn-danger">pdf</a>
                             </div>
                         </div>
                     </div>
@@ -163,24 +145,11 @@
                                 <td>{{i.created_by}}</td>
                                 <td>
                                     <a href="#editEmployeeModal-{{forloop.counter}}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal-{{forloop.counter}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
-                    <div class="clearfix">
-                        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                        <ul class="pagination">
-                            <li class="page-item disabled"><a href="#">Previous</a></li>
-                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link">4</a></li>
-                            <li class="page-item"><a href="#" class="page-link">5</a></li>
-                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -188,7 +157,7 @@
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="{% url 'add' %}" method="POST">
+                    <form action="{% url 'add_user' %}" method="POST">
                         {% csrf_token %}
                         <div class="modal-header">
                             <h4 class="modal-title">Add Challan_reciever</h4>
@@ -245,7 +214,7 @@
         <div id="editEmployeeModal-{{forloop.counter}}" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="/update/{{i.id}}" method="POST">
+                    <form action="/update_user/{{i.id}}" method="POST">
                         {% csrf_token %}
                         <div class="modal-header">
                             <h4 class="modal-title">Add Challan_reciever</h4>
@@ -298,30 +267,6 @@
             </div>
         </div>
         {% endfor %}
-        <!-- Delete Modal HTML -->
-        {% for i in emp %}
-        <div id="deleteEmployeeModal-{{forloop.counter}}" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">
-                            <h4 class="modal-title">Delete Employee</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Are you sure you want to delete these Records?</p>
-                            <p class="text-warning"><small>This action cannot be undone.</small></p>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <a href="/delete/{{i.id}}" type="submit" class="btn btn-danger">Delete</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
 
     </div>
     </div>
